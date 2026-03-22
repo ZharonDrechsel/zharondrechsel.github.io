@@ -53,7 +53,6 @@
 
     nav ul a:hover { color: #e8e2d9; }
 
-    /* HERO */
     .hero {
       min-height: 100vh;
       display: flex;
@@ -80,9 +79,7 @@
       margin-bottom: 1.5rem;
     }
 
-    .hero h1 span {
-      color: #5a7a6a;
-    }
+    .hero h1 span { color: #5a7a6a; }
 
     .hero p {
       font-size: 1.1rem;
@@ -109,7 +106,6 @@
       color: #080c10;
     }
 
-    /* SECTIONS */
     section {
       padding: 7rem 3rem;
       max-width: 900px;
@@ -135,9 +131,18 @@
 
     p { color: #8a8a8a; font-weight: 300; margin-bottom: 1rem; }
 
-    /* PROJECT CARD */
-    .project-card {
+    .project-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
       margin-top: 3rem;
+    }
+
+    @media (max-width: 680px) {
+      .project-grid { grid-template-columns: 1fr; }
+    }
+
+    .project-card {
       padding: 2.5rem;
       border: 1px solid #1e2530;
       background: #0d1117;
@@ -153,6 +158,10 @@
       background: #5a7a6a;
     }
 
+    .project-card.featured {
+      grid-column: 1 / -1;
+    }
+
     .project-card h3 {
       font-family: 'Playfair Display', serif;
       font-size: 1.5rem;
@@ -160,7 +169,15 @@
       margin-bottom: 0.75rem;
     }
 
-    .project-card .tags {
+    .project-card .subtitle {
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #5a7a6a;
+      margin-bottom: 1rem;
+    }
+
+    .tags {
       display: flex;
       flex-wrap: wrap;
       gap: 0.5rem;
@@ -176,7 +193,13 @@
       color: #5a7a6a;
     }
 
-    /* CONTACT */
+    .divider {
+      width: 40px;
+      height: 1px;
+      background: #5a7a6a;
+      margin: 2rem 0;
+    }
+
     .contact-link {
       font-family: 'Playfair Display', serif;
       font-size: clamp(1.5rem, 3vw, 2.2rem);
@@ -208,7 +231,6 @@
     </ul>
   </nav>
 
-  <!-- HERO -->
   <div class="hero">
     <div class="eyebrow">AI Development · Interface Design · Systems Thinking</div>
     <h1>Communication<br>is the <span>architecture.</span></h1>
@@ -216,47 +238,78 @@
     <a href="#work" class="btn">See the Work</a>
   </div>
 
-  <!-- ABOUT -->
   <section id="about">
     <div class="section-label">Background</div>
     <h2>Not a computer scientist.<br>Something different.</h2>
-    <p>My foundation is anthropology — the study of human communication systems, behavior, and meaning-making. That lens shapes everything I build.</p>
-    <p>Where most software starts with data structures, I start with the question: how do people actually communicate, and what does a system need to understand to meet them there?</p>
-    <p>The result is software that feels less like a tool and more like a conversation.</p>
+    <p>My foundation is in the humanities — literature, linguistics, anthropology. The study of how humans construct meaning, negotiate interaction, and build systems of communication.</p>
+    <p>I came to software development through that lens, teaching myself Python, AI development, and data systems along the way. Where most engineers start with data structures, I start with a different question: how do people actually communicate — and what does a system need to understand to meet them there?</p>
+    <div class="divider"></div>
+    <p>The result is software that doesn't just process input. It understands context, anticipates response, and engages the way a conversation does.</p>
   </section>
 
-  <!-- WORK -->
   <section id="work">
-    <div class="section-label">Current Project</div>
-    <h2>A new kind of<br>financial intelligence.</h2>
-    <p>Years in development. Built on a self-designed AI framework. Full double-entry accounting at its core — with the ambition of becoming something much larger.</p>
+    <div class="section-label">Work</div>
+    <h2>Two things being<br>built at once.</h2>
+    <p>A framework and the application proving it works.</p>
 
-    <div class="project-card">
-      <h3>Budget App — In Development</h3>
-      <p>A full double-entry accounting system built around an original AI framework. Designed not just to track money, but to understand the communication patterns behind financial decisions.</p>
-      <p>Business software that thinks the way people do.</p>
-      <div class="tags">
-        <span class="tag">AI Framework</span>
-        <span class="tag">Double-Entry Accounting</span>
-        <span class="tag">UI Design</span>
-        <span class="tag">Business Software</span>
-        <span class="tag">In Development</span>
+    <div class="project-grid">
+
+      <div class="project-card featured">
+        <div class="subtitle">Framework</div>
+        <h3>RitualUI</h3>
+        <p>A communication framework for human-software interaction — built on linguistic principles rather than conventional input handling. RitualUI models conversation the way it actually works: turn-taking, floor management, adjacency pairs, modal states, and preferred responses.</p>
+        <p>Interaction isn't a transaction. It's a ritual. RitualUI is the infrastructure for software that understands the difference.</p>
+        <div class="tags">
+          <span class="tag">NLP Pipeline</span>
+          <span class="tag">Conversational AI</span>
+          <span class="tag">Linguistic Modeling</span>
+          <span class="tag">PySide6</span>
+          <span class="tag">Python</span>
+        </div>
       </div>
+
+      <div class="project-card">
+        <div class="subtitle">Application</div>
+        <h3>DreamScape</h3>
+        <p>A full double-entry accounting system built on RitualUI. Financial software you talk to — it asks what it needs, fills in what it can, and processes the rest through conversation.</p>
+        <p>Business software that thinks the way people do.</p>
+        <div class="tags">
+          <span class="tag">Accounting</span>
+          <span class="tag">Double-Entry</span>
+          <span class="tag">Desktop App</span>
+          <span class="tag">In Development</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="subtitle">Approach</div>
+        <h3>The Underlying Idea</h3>
+        <p>Most AI systems are built to process commands. RitualUI is built to hold a conversation — understanding not just what was said, but what kind of thing was said, what response it calls for, and what comes next.</p>
+        <p>That distinction changes everything about how the software behaves.</p>
+        <div class="tags">
+          <span class="tag">Anthropology</span>
+          <span class="tag">Communication Theory</span>
+          <span class="tag">Human-Centered Design</span>
+        </div>
+      </div>
+
     </div>
   </section>
 
-  <!-- CONTACT -->
   <section id="contact">
     <div class="section-label">Contact</div>
     <h2>Let's talk.</h2>
     <p>Interested in the work, the framework, or just curious? Reach out.</p>
     <br>
-    <a href="mailto:your@email.com" class="contact-link">your@email.com</a>
+    <a href="mailto:zdrechsel@gmail.com" class="contact-link">your@email.com</a>
   </section>
 
   <footer>
     © 2026 Zharon Drechsel
   </footer>
+
+</body>
+</html>
 
 </body>
 </html>
